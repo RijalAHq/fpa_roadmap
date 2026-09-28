@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FP&A Roadmap — 36-Week Ledger</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="css/weekly.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div>
+        <h1>FP&amp;A Roadmap <em>·</em> Ledger</h1>
+        <div class="sub" id="mastSub">36-Week Finance Data Track</div>
+      </div>
+      <div class="mast-tools">
+        <button class="btn" id="btnStart" type="button">Set Start Date</button>
+        <button class="btn" id="btnExport" type="button">Export</button>
+        <button class="btn" id="btnImport" type="button">Import</button>
+        <button class="btn danger" id="btnReset" type="button">Reset</button>
+        <input type="file" id="importFile" accept="application/json">
+      </div>
+    </div>
+  </header>
+
+  <section class="paper" aria-label="Dashboard">
+    <div class="paper-head">
+      <h2>Position</h2>
+      <span class="asof" id="asOf"></span>
+    </div>
+    <div class="dash-grid">
+      <div class="dash-main">
+        <div class="dash-fig">
+          <div class="big-num"><span id="pctMain">0</span><span class="unit">%</span></div>
+          <div class="cap">Roadmap complete<br><span id="pctSub">0 of 26 steps marked</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="k">Current week</div><div class="v" id="stWeek">—</div></div>
+          <div class="stat"><div class="k">Steps done</div><div class="v" id="stSteps">0<small>/26</small></div></div>
+          <div class="stat"><div class="k">Projects done</div><div class="v" id="stProj">0<small>/18</small></div></div>
+          <div class="stat"><div class="k">Phase</div><div class="v" id="stPhase" style="font-size:15px;line-height:1.7">—</div></div>
+        </div>
+      </div>
+      <div class="dash-side">
+        <div class="next-label">Next task — current week</div>
+        <div id="nextTaskBox"></div>
+        <div class="run-row" id="runRow"></div>
+      </div>
+    </div>
+    <div class="trackbar-wrap">
+      <div class="progress-note"><span>Week 1</span><span id="barLabel">36-week timeline</span><span>Week 36</span></div>
+      <div class="trackbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="trackbar" aria-label="Roadmap progress"><div class="fill" id="trackFill" style="width:0%"></div></div>
+    </div>
+    <div class="weeks-head">
+      <h2>36-Week Ledger</h2>
+      <span class="hint">click a cell → jump to that week's steps</span>
+    </div>
+    <div class="weekgrid" id="weekgrid"></div>
+    <div class="wk-legend">
+      <span class="li"><span class="chip"></span> not started</span>
+      <span class="li"><span class="chip d"></span> completed</span>
+      <span class="li"><span class="chip i"></span> in progress</span>
+      <span class="li"><span class="chip n"></span> current week</span>
+    </div>
+  </section>
+
+  <div class="sec-head">
+    <h2><span class="idx">1.</span>Step Register</h2>
+    <span class="count" id="regCount"></span>
+  </div>
+  <section class="register" id="register" aria-label="Steps"></section>
+
+  <div class="sec-head">
+    <h2><span class="idx">2.</span>Portfolio Outputs</h2>
+    <span class="count" id="projCount"></span>
+  </div>
+  <section class="proj-table" aria-label="Projects">
+    <table class="proj">
+      <thead>
+        <tr>
+          <th>Project</th><th>Status</th><th>Progress</th><th>Start</th><th>Target</th><th>Done</th><th>Link</th>
+        </tr>
+      </thead>
+      <tbody id="projBody"></tbody>
+    </table>
+  </section>
+
+  <div class="sec-head" id="weekview">
+    <h2><span class="idx">3.</span>Weekly View</h2>
+    <span class="count" id="wvCount"></span>
+  </div>
+  <section class="wv-paper" aria-label="Weekly view">
+    <div class="wv-grid" id="wvGrid"></div>
+  </section>
+
+  <footer>
+    <span>FP&amp;A Roadmap — 36-week finance data track</span>
+    <span id="ftData"></span>
+  </footer>
+</div>
+
+<dialog id="dlgStart">
+  <h3>Programme start date</h3>
+  <p>Week 1 begins on this date. Current week and phase derive from it.</p>
+  <input type="date" id="startDateInput">
+  <div class="dlg-actions">
+    <button class="btn dark" id="startClear" type="button">Clear</button>
+    <button class="btn dark" id="startSave" type="button">Save</button>
+  </div>
+</dialog>
+
+<dialog id="dlgReset">
+  <h3>Reset ledger</h3>
+  <p>Clears all statuses, notes, and dates on this device. Roadmap structure stays. Export first if you want a backup.</p>
+  <div class="dlg-actions">
+    <button class="btn dark" id="resetNo" type="button">Cancel</button>
+    <button class="btn danger" id="resetYes" type="button">Reset</button>
+  </div>
+</dialog>
+
+<div id="toast" role="status"></div>
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/derive.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

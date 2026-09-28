@@ -1,0 +1,23 @@
+/* Breakpoints and reduced motion. Keep last in the cascade. */
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:960px){
+  .dash-grid{grid-template-columns:1fr}
+  .dash-main{border-right:none;border-bottom:1px solid var(--rule)}
+  .reg-main{grid-template-columns:44px 1fr auto}
+  .reg-goal{display:none}
+  .reg-detail-in{grid-template-columns:1fr}
+  .dcol + .dcol{border-left:none;border-top:1px solid var(--rule)}
+  .weekgrid{grid-template-columns:repeat(6,1fr)}
+}
+@media(max-width:620px){
+  .weekgrid{grid-template-columns:repeat(4,1fr)}
+  .reg-main{grid-template-columns:38px 1fr;grid-template-rows:auto auto}
+  .reg-act{grid-column:2;border-left:1px solid var(--rule);padding-left:14px}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .stat + .stat{border-left:none}
+  .stat{border-top:1px solid var(--rule-soft);padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}

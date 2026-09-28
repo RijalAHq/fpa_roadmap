@@ -1,0 +1,33 @@
+/* Design tokens, reset, base elements. Edit here to retheme the whole app. */
+:root{
+  --desk:#0e1626;
+  --desk-2:#0a1120;
+  --paper:#efece3;
+  --paper-2:#e7e3d6;
+  --paper-3:#ded9c9;
+  --ink:#1c2434;
+  --ink-soft:#4a5468;
+  --ink-faint:#5f6980;
+  --rule:#c9c3b2;
+  --rule-soft:#d9d4c4;
+  --gold:#c8a24a;
+  --gold-dim:#8a6f34;
+  --red:#c13722;
+  --red-soft:#a93a26;
+  --cream:#e8e4d8;
+  --font-body:"Segoe UI","Helvetica Neue",system-ui,-apple-system,sans-serif;
+  --font-mono:"Cascadia Code","Consolas","SF Mono",Menlo,monospace;
+  --sans-c: "Arial Narrow","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:var(--red);color:var(--cream)}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--desk);
+  color:var(--cream);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+@media(min-width:1100px){body{font-size:15.5px}}
